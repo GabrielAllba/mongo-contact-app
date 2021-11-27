@@ -1,0 +1,35 @@
+<%- include('layouts/header') %> 
+<%- include('layouts/nav') %> 
+<div class="container mt-3">
+    <div class="row">
+      <% if (typeof errors != 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% errors.forEach(error => { %>
+              <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+        <div class="col-md-6">
+            <form method="post" action="/contact?_method=PUT"> 
+                <input type="hidden" name="_id" value="<%= contacts._id %>">
+                <input type="hidden" name="namaLama" value="<%= contacts.namaLama || contacts.nama %>">
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" name="nama" required value="<%= contacts.nama %>">
+                </div>
+                <div class="mb-3">
+                    <label for="nohp" class="form-label">Telephone Number</label>
+                    <input type="text" class="form-control" id="nohp" name="nohp" required value="<%= contacts.nohp %>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" required value="<%= contacts.email %>">
+                  </div>
+                <button type="submit" class="btn btn-primary">edit</button>
+              </form>  
+        </div>
+    </div>
+</div>
+<%- include('layouts/footer') %> 

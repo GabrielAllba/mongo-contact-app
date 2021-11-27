@@ -1,0 +1,27 @@
+<%- include('./layouts/header') %> 
+<%- include('./layouts/nav') %> 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% mahasiswas.forEach((element,i) => { i+=1%>
+                    <tr>
+                        <th scope="row"><%= i %></th>
+                        <td><%= element.nama %></td>
+                        <td><%= element.email %></td>
+                      </tr>
+                <% })%>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<%- include('./layouts/footer') %> 

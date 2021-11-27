@@ -1,0 +1,35 @@
+<%- include('./layouts/header') %> 
+<%- include('./layouts/nav') %> 
+<div class="container">
+  <% if (msg.length !== 0) { %>
+    <div class="alert alert-success" role="alert" style="margin-top: 2rem;">
+        <%= msg %> 
+      </div>
+<% } %>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% contacts.forEach((contact,i) => { i+=1%>
+            <tr>
+                <th scope="row"><%= i %></th>
+                <td><%= contact.nama %></td>
+                <td><%= contact.nohp %></td>
+                <td>
+                    <a href="/contact/<%= contact.nama %>" class="btn btn-primary badge rounded-pill">
+                        detail
+                    </a>
+                </td>
+              </tr>
+        <% })%>
+        </tbody>
+      </table>
+      <a href="/contact/add-contact"><button type="button" class="btn btn-outline-primary">Add Contact</button></a>
+</div>
+<%- include('./layouts/footer') %> 
